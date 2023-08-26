@@ -5,12 +5,17 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Image from '~/components/Image';
 import styles from './AccountItem.module.scss';
+import setShowResult from './index';
 
 const cx = classNames.bind(styles);
 
+const handleHideResult = () => {
+  setShowResult(false);
+};
+
 function AccountItem({ data }) {
   return (
-    <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+    <Link to={`/@${data.nickname}`} className={cx('wrapper')} onClick={handleHideResult}>
       <Image className={cx('avatar')} src={data.avatar} alt={data.full_name} />
       <div className={cx('info')}>
         <h4 className={cx('name')}>
